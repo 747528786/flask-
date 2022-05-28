@@ -27,13 +27,10 @@ def get_m1_data():
 def get_m2_data():
     res = []
     for tup in utils.get_map_data():
-        # res.append({"name": tup[0], "value": int(tup[1])/100000})
         res.append({"name": tup[0], "value": int(tup[1])})
     min_num = utils.get_map_range_data()[0][1]
-    # max_num = utils.get_map_range_data()[0][0]/100000
     max_num = utils.get_map_range_data()[0][0]
     return jsonify({"data": res, "max_num": max_num, "min_num": min_num})
-    # return jsonify({"data": res})
 
 
 @app.route('/l1')
@@ -42,7 +39,6 @@ def get_l1_data():
     num = []
     for s, n in utils.get_l1_data():
         sku.append(s)
-        # num.append(int(n/100000))
         num.append(int(n))
     return jsonify({'sku': sku,
                     'num': num})
